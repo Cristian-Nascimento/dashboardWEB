@@ -6,14 +6,10 @@ import Dashboard from './components/Dashboard';
 import { AuthProvider, AuthContext } from './contexts/AuthContext';
 import './App.css';
 
-const PrivateRoute = ({ element: Component, ...rest }) => {
+const PrivateRoute = ({ children }) => {
   const { auth } = useContext(AuthContext);
 
-  return auth && auth.token ? (
-    <Component {...rest} />
-  ) : (
-    <Navigate to="/login" />
-  );
+  return auth?.token ? children : <Navigate to="/login" />;
 };
 
 const App = () => {
@@ -21,7 +17,14 @@ const App = () => {
     <AuthProvider>
       <Routes>
         <Route path="/login" element={<Auth />} />
-        <Route path="/transactions" element={<PrivateRoute element={Dashboard} />} />
+        <Route
+          path="/transactions"
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        />
         <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
     </AuthProvider>
