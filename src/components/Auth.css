@@ -1,4 +1,3 @@
-/* src/App.css */
 body {
   margin: 0;
   padding: 0;
@@ -11,15 +10,7 @@ body {
   background: #f0f2f5;
 }
 
-.app-container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.login-container {
+.auth-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,7 +18,7 @@ body {
   height: 100%;
 }
 
-.login-box {
+.auth-box {
   background-color: white;
   padding: 40px;
   border-radius: 8px;
@@ -36,13 +27,13 @@ body {
   width: 300px;
 }
 
-.login-box h2 {
+.auth-box h2 {
   margin-bottom: 20px;
   font-size: 24px;
   color: #333;
 }
 
-.login-box input {
+.auth-box input {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
@@ -51,7 +42,7 @@ body {
   box-sizing: border-box;
 }
 
-.login-box .login-button {
+.auth-box .auth-button {
   width: 100%;
   padding: 10px;
   margin-top: 20px;
@@ -64,17 +55,17 @@ body {
   transition: background 0.3s ease;
 }
 
-.login-box .login-button:hover {
+.auth-box .auth-button:hover {
   background: linear-gradient(to right, #00f2fe, #4facfe);
 }
 
-.register-link {
+.toggle-link {
   margin-top: 20px;
   font-size: 14px;
   color: #555;
 }
 
-.register-link button {
+.toggle-link button {
   background: none;
   border: none;
   color: #007bff;
@@ -83,6 +74,6 @@ body {
   font-size: 14px;
 }
 
-.register-link button:hover {
+.toggle-link button:hover {
   text-decoration: underline;
 }

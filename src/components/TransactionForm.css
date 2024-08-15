@@ -1,0 +1,42 @@
+.transaction-form {
+  display: flex;
+  flex-direction: row;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+.transaction-form input,
+.transaction-form select,
+.transaction-form button {
+  margin-left: 15px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.transaction-form input[type="text"],
+.transaction-form input[type="number"] {
+  width: calc(100% - 22px);
+  /* Adjust width for padding and border */
+}
+
+.transaction-form select {
+  width: 100%;
+}
+
+.submit-button {
+  width: 50%;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.submit-button:hover {
+  background-color: #45a049;
+}

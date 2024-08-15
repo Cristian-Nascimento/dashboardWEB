@@ -1,0 +1,66 @@
+.transaction-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.buttom-action {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.transaction-table th,
+.transaction-table td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.transaction-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.transaction-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.transaction-table tr:hover {
+  background-color: #e0e0e0;
+}
+
+.transaction-table button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.transaction-table button:first-of-type {
+  background-color: #ff6f61;
+  color: white;
+}
+
+.transaction-table button:first-of-type:hover {
+  background-color: #e55b53;
+}
+
+.transaction-table button:last-of-type {
+  background-color: #007bff;
+  color: white;
+}
+
+.transaction-table button:last-of-type:hover {
+  background-color: #0056b3;
+}
+
+.totals {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.totals p {
+  margin: 5px 0;
+}

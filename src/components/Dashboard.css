@@ -1,0 +1,114 @@
+.dashboard-container {
+  margin: auto;
+  position: absolute;
+  right: 20%;
+  top: 5%;
+  font-family: Arial, sans-serif;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: auto;
+}
+
+.logout-button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.dashboard-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.filter-container {
+  margin-bottom: 20px;
+}
+
+.filter-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.calendar-popup {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background: white;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.calendar {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.charts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.chart-container {
+  width: 100%;
+  max-width: 800px;
+}
+
+.transaction-table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.transaction-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.transaction-table th,
+.transaction-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.transaction-table th {
+  background-color: #f4f4f4;
+}
+
+.totals {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+
+.totals p {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  border-radius: 15px;
+  padding: 10px;
+  background-color: #4caf50;
+  margin: 0;
+}
+
+.transaction-actions button {
+  margin-right: 5px;
+}
