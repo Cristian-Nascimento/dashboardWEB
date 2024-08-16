@@ -25,7 +25,7 @@ const App = () => {
             </PrivateRoute>
           }
         />
-        <Route path="*" element={<Navigate to="/login" />} />
+        {/* <Route path="*" element={<Navigate to="/login" />} /> */}
       </Routes>
     </AuthProvider>
   );
