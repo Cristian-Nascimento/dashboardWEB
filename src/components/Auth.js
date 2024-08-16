@@ -3,6 +3,7 @@ import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import Loading from './Loading';
 import './Auth.css';
 
 const url = process.env.REACT_APP_BACKEND_URL;
@@ -12,22 +13,23 @@ const Auth = () => {
   const [password, setPassword] = useState('');
   const [isRegistering, setIsRegistering] = useState(false);
   const [name, setName] = useState('');
+  const [loading, setLoading] = useState(false);
   const { setAuth } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
-      const accessToken = process.env.REACT_APP_MASTER_KEY
-
-      const auth = `Basic ${btoa(`${email}:${password}`)}`
+      const accessToken = process.env.REACT_APP_MASTER_KEY;
+      const auth = `Basic ${btoa(`${email}:${password}`)}`;
 
       const response = await axios.post(
         `${url}/auth`,
         { access_token: accessToken },
         {
           headers: {
-            Authorization: auth
+            Authorization: auth,
           }
         }
       );
@@ -37,24 +39,35 @@ const Auth = () => {
       localStorage.setItem('userId', userId);
       setAuth({ token, user });
 
+      await axios.get(`${url}/transactions`, {
+        headers: { Authorization: `Bearer ${token}` },
+        params: { userId: userId }
+      });
+
       navigate(`/transactions?userId=${userId}`);
     } catch (error) {
       console.error('Login error:', error.response ? error.response.data : error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
   const handleRegister = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       await axios.post(`${url}/users`, { email, password, name });
       setIsRegistering(false);
     } catch (error) {
       console.error('Register error:', error);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="auth-container">
+      {loading && <Loading />}
       <div className="auth-box">
         <h2>{isRegistering ? 'Register' : 'Welcome'}</h2>
         <form onSubmit={isRegistering ? handleRegister : handleLogin}>

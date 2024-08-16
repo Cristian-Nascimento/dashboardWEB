@@ -210,9 +210,9 @@ const Dashboard = () => {
             <h3>Resumo das Transações</h3>
             <Line data={lineData} options={lineOptions} />
             <div className="totals">
-              <p>Total de Entrada: {totals.totalInput}</p>
-              <p>Total de Saída: {totals.totalOutput}</p>
-              <p>Balanço: {totals.balance}</p>
+              <p>Total de Entrada: {totals.totalInput.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
+              <p>Total de Saída: {totals.totalOutput.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
+              <p>Balanço: {totals.balance.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
               <p>Contador: {totals.count}</p>
             </div>
           </div>
