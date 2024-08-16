@@ -8,7 +8,7 @@ const PrivateRoute = () => {
 
   // If the user is not authenticated, redirect to login page
   if (!auth || !auth.token) {
-    return <Navigate to="/login" />;
+    return <Navigate to="/" />;
   }
 
   // If authenticated, render the child routes

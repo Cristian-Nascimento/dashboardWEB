@@ -9,14 +9,14 @@ import './App.css';
 const PrivateRoute = ({ children }) => {
   const { auth } = useContext(AuthContext);
 
-  return auth?.token ? children : <Navigate to="/login" />;
+  return auth?.token ? children : <Navigate to="/" />;
 };
 
 const App = () => {
   return (
     <AuthProvider>
       <Routes>
-        <Route path="/login" element={<Auth />} />
+        <Route path="/" element={<Auth />} />
         <Route
           path="/transactions"
           element={
@@ -25,7 +25,6 @@ const App = () => {
             </PrivateRoute>
           }
         />
-        {/* <Route path="*" element={<Navigate to="/login" />} /> */}
       </Routes>
     </AuthProvider>
   );

@@ -66,7 +66,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     if (!auth || !token) {
-      navigate('/login');
+      navigate('/');
       return;
     }
     fetchTransactions();
@@ -115,7 +115,7 @@ const Dashboard = () => {
   const handleLogout = () => {
     localStorage.removeItem('authToken');
     setAuth(null);
-    navigate('/login');
+    navigate('/');
   };
 
   const processTransactions = () => {
