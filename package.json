@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.21.1",
     "chart.js": "^4.4.3",
+    "eslint-plugin-react-hooks": "^5.1.0-rc-19bd26be-20240815",
     "react": "^18.3.1",
     "react-calendar": "^5.0.0",
     "react-chartjs-2": "^5.2.0",

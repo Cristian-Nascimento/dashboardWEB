@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, useCallback } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
@@ -39,7 +39,7 @@ const Dashboard = () => {
   const [editingTransaction, setEditingTransaction] = useState(null);
   const navigate = useNavigate();
 
-  const fetchTransactions = useCallback(async () => {
+  const fetchTransactions = async () => {
     try {
       const params = { userId };
       if (dateRange[0] && dateRange[1]) {
@@ -61,7 +61,7 @@ const Dashboard = () => {
     } catch (error) {
       console.error('Error fetching transactions:', error);
     }
-  }, [dateRange]);
+  };
 
   useEffect(() => {
     if (!auth || !token) {
@@ -69,7 +69,7 @@ const Dashboard = () => {
       return;
     }
     fetchTransactions();
-  }, [auth, fetchTransactions, navigate]);
+  }, [auth, navigate, dateRange]);
 
   const handleAddTransaction = async (transaction) => {
     try {
