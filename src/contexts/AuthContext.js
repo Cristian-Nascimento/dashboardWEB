@@ -1,17 +1,13 @@
-import React, { createContext, useState, useEffect } from 'react';
+// src/contexts/AuthContext.js
+import React, { createContext, useState } from 'react';
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [auth, setAuth] = useState(() => {
-    // Get token from localStorage if available
-    const token = localStorage.getItem('authToken');
-    return token ? { token, user: { email: '' } } : null;
+  const [auth, setAuth] = useState({
+    token: localStorage.getItem('authToken') || null,
+    user: null,
   });
-
-  useEffect(() => {
-    // You might want to perform additional actions when auth changes
-  }, [auth]);
 
   return (
     <AuthContext.Provider value={{ auth, setAuth }}>

@@ -1,3 +1,4 @@
+// src/components/Auth.js
 import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../contexts/AuthContext';
@@ -35,11 +36,6 @@ const Auth = () => {
       localStorage.setItem('authToken', token);
       localStorage.setItem('userId', userId);
       setAuth({ token, user });
-
-      await axios.get(`${url}/transactions`, {
-        headers: { Authorization: `Bearer ${token}` },
-        params: { userId: userId }
-      });
 
       navigate(`/transactions?userId=${userId}`);
     } catch (error) {
@@ -91,7 +87,7 @@ const Auth = () => {
         </form>
         <div className="toggle-link">
           <button className="toggle-button" onClick={() => setIsRegistering(!isRegistering)}>
-            {isRegistering ? 'Already have an account? Login' : 'Dont have an account? Register'}
+            {isRegistering ? 'Already have an account? Login' : 'Don\'t have an account? Register'}
           </button>
         </div>
       </div>
