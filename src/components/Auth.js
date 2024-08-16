@@ -7,6 +7,7 @@ import Loading from './Loading';
 import './Auth.css';
 
 const url = process.env.REACT_APP_BACKEND_URL;
+const accessToken = process.env.REACT_APP_MASTER_KEY;
 
 const Auth = () => {
   const [email, setEmail] = useState('');
@@ -21,7 +22,6 @@ const Auth = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const accessToken = process.env.REACT_APP_MASTER_KEY;
       const auth = `Basic ${btoa(`${email}:${password}`)}`;
 
       const response = await axios.post(
@@ -56,7 +56,10 @@ const Auth = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.post(`${url}/users`, { email, password, name });
+      await axios.post(
+        `${url}/users`,
+        { email, password, name, access_token: accessToken }
+      );
       setIsRegistering(false);
     } catch (error) {
       console.error('Register error:', error);
