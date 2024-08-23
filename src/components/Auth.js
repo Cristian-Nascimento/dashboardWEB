@@ -34,17 +34,12 @@ const Auth = () => {
         }
       );
       const { token, user } = response.data;
-      let userId = user.id;
+
       localStorage.setItem('authToken', token);
-      localStorage.setItem('userId', userId);
+      localStorage.setItem('userId', user.id);
       setAuth({ token, user });
 
-      await axios.get(`${url}/transactions`, {
-        headers: { Authorization: `Bearer ${token}` },
-        params: { userId: userId }
-      });
-
-      navigate(`/transactions?userId=${userId}`);
+      navigate(`/transactions?userId=${user.id}`);
     } catch (error) {
       console.error('Login error:', error.response ? error.response.data : error.message);
     } finally {
