@@ -1,4 +1,3 @@
-// src/components/Auth.js
 import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../contexts/AuthContext';
